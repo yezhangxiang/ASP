@@ -1,0 +1,11 @@
+function [A, B, Trsrp, Tsinr, Tuenum, w, M, TrafficMap] = readInput(filename)
+input = textread(filename);
+A = input(1, 1);
+B = input(2, 1);
+Trsrp = input(3, 1);
+Tsinr = input(4, 1);
+Tuenum = input(5, 1);
+w = input(6, 1);
+M = input(7, 1);
+[inputrow, ~] = size(input);
+TrafficMap = input(8 : inputrow, :);

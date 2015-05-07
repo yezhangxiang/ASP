@@ -1,0 +1,9 @@
+function SINR = calSINR(bestRSCP, RSCP)
+[row, col] = size(bestRSCP);
+RSCPLin = 10.^(RSCP/10-3);
+bestRSCPLin = 10.^(bestRSCP/10-3);
+N = 3 * 10 ^(-16);
+interference = sum(RSCPLin);
+interference = reshape(interference, row, col);
+interference = interference - bestRSCPLin + N;
+SINR = 10*log10(bestRSCPLin./interference);
